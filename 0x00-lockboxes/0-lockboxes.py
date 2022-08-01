@@ -34,11 +34,9 @@ def canUnlockAll(boxes):
     while (keys != [] and list_box != []):
         for j in range(len(keys)):
             if (validate(j, boxes) != 0):
-                print("=====ERROR=====")
                 del keys[j]
             else:
                 new_keys = add_keys(keys, boxes[keys[j]], list_box)
-
                 if new_keys[j] != list_box[j] and new_keys[j] in list_box:
                     del list_box[j]
                     list_box.remove(new_keys[j])
