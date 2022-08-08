@@ -4,6 +4,9 @@
 ### [0x00-lockboxes](https://github.com/Ineffable22/holbertonschool-interview/tree/main/0x00-lockboxes)
 Solve the Lockboxes challenge
 
+### [0x01-insert_in_sorted_linked_list](https://github.com/Ineffable22/holbertonschool-interview/tree/main/0x01-insert_in_sorted_linked_list)
+Write a function in C that inserts a number into a sorted singly linked list.
+
 ## Author:
 <div align="center">
 <a href="https://www.linkedin.com/in/miguel-enrique-grillo-orellana/">
