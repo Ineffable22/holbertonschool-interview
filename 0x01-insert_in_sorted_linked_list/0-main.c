@@ -20,12 +20,26 @@ int main(void)
 	print_listint(head);
 
 	printf("-----------------\n");
-
-	insert_node(&head, 27);
-
+	insert_node(&head, -1);
 	print_listint(head);
 
-	free_listint(head);
+	printf("-----------------\n");
+	insert_node(&head, 4096);
+	print_listint(head);
+
+	printf("-----------------\n");
+	insert_node(&head, 5);
+	print_listint(head);
+
+	free_listint(&head);
+
+	printf("-----------------\n");
+	insert_node(&head, 22);
+	print_listint(head);
+
+	free_listint(&head);
+	printf("-----------------\n");
+	print_listint(head);
 
 	return (0);
 }
