@@ -55,15 +55,15 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 }
 
 /**
- * free_listint - frees a listint_t list
+ * best_free_listint - frees a listint_t list
  * @head: pointer to list to be freed
  * Return: void
  */
-void free_listint(listint_t **head)
+void best_free_listint(listint_t **head)
 {
 	if ((*head) != NULL)
 	{
-		free_listint(&(*head)->next);
+		best_free_listint(&(*head)->next);
 		free(*head);
 		(*head) = NULL;
 	}
