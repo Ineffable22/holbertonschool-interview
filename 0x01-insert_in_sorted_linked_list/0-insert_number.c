@@ -11,7 +11,7 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *node = NULL;
 
-	if ((*head) == NULL || (*head)->n > number)
+	if ((*head) == NULL || (*head)->n >= number)
 	{
 		node = calloc(1, sizeof(listint_t));
 		if (node == NULL)
