@@ -6,9 +6,8 @@
  */
 int main(void)
 {
-	listint_t *head;
+	listint_t *head = NULL, *node = NULL;
 
-	head = NULL;
 	add_nodeint_end(&head, 0);
 	add_nodeint_end(&head, 1);
 	add_nodeint_end(&head, 2);
@@ -20,22 +19,26 @@ int main(void)
 	print_listint(head);
 
 	printf("-----------------\n");
-	insert_node(&head, -1);
+	node = insert_node(&head, -1);
 	print_listint(head);
+	printf("Node Address | value ->%d\n", node->n);
 
 	printf("-----------------\n");
-	insert_node(&head, 4096);
+	node = insert_node(&head, 4096);
 	print_listint(head);
+	printf("Node Address | value ->%d\n", node->n);
 
 	printf("-----------------\n");
-	insert_node(&head, 5);
+	node = insert_node(&head, 5);
 	print_listint(head);
+	printf("Node Address | value ->%d\n", node->n);
 
 	free_listint(&head);
 
 	printf("-----------------\n");
-	insert_node(&head, 22);
+	node = insert_node(&head, 22);
 	print_listint(head);
+	printf("Node Address | value ->%d\n", node->n);
 
 	free_listint(&head);
 	printf("-----------------\n");
