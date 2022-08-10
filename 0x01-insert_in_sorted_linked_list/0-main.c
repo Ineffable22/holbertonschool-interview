@@ -33,14 +33,14 @@ int main(void)
 	print_listint(head);
 	printf("Node Address | value ->%d\n", node->n);
 
-	free_listint(&head);
+	best_free_listint(&head);
 
 	printf("-----------------\n");
 	node = insert_node(&head, 22);
 	print_listint(head);
 	printf("Node Address | value ->%d\n", node->n);
 
-	free_listint(&head);
+	best_free_listint(&head);
 	printf("-----------------\n");
 	print_listint(head);
 
