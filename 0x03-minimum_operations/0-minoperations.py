@@ -8,20 +8,17 @@ def minOperations(n):
     Return:
     sum of their prime factors of each number
     """
-    if (n <= 0):
+    if (n <= 1):
         return (0)
     mul = 2
-    multiples = []
     total = 0
     while (n != 1):
         if n % mul == 0:
             n /= mul
-            multiples.append(mul)
+            total += mul
             mul = 2
         else:
             mul += 1
-    for i in multiples:
-        total += i
     return total
 
 
