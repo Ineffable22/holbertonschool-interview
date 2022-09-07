@@ -3,14 +3,14 @@
 /**
  * node - Search a node by index
  * @head: Pointer to singly linked list
- * @i: Index to compare
+ * @idx: Index to compare
  *
  * Return: The searched value
  */
-int node(listint_t *head, int i)
+int node(listint_t *head, int idx)
 {
-	if (i != 0)
-		return (node(head->next, i - 1));
+	if (idx != 0)
+		return (node(head->next, idx - 1));
 
 	return (head->n);
 }
@@ -34,6 +34,19 @@ int check(listint_t *head, int total)
 }
 
 /**
+ * length - Calculates length
+ * @head: Pointer to singly linked list
+ *
+ * Return: Length
+ **/
+int length(listint_t *head)
+{
+	if (head)
+		return (length(head->next) + 1);
+	return (0);
+}
+
+/**
  * is_palindrome - Checks if a singly linked list is a palindrome
  * @head: Pointer to singly linked list
  *
@@ -41,18 +54,11 @@ int check(listint_t *head, int total)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp = NULL;
-	int i = 0;
+	int len = 0;
 
 	if (!head || !*head)
 		return (1);
 
-	tmp = *head;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		i++;
-	}
-
-	return (check(*head, i - 1));
+	len = length(*head);
+	return (check(*head, len - 1));
 }
