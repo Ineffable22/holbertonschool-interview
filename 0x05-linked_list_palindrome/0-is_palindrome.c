@@ -11,6 +11,7 @@ int node(listint_t *head, int i)
 {
 	if (i != 0)
 		return (node(head->next, i - 1));
+
 	return (head->n);
 }
 
@@ -23,19 +24,13 @@ int node(listint_t *head, int i)
  */
 int check(listint_t *head, int total)
 {
-	listint_t *tmp = head;
-	int i = total, j = 0;
-
-	if (i == 0)
+	if (total <= 0)
 		return (1);
-	while (j <= total / 2)
-	{
-		if (node(tmp, j) != node(tmp, i))
-			return (0);
-		j++;
-		i--;
-	}
-	return (1);
+
+	if (head->n == node(head, total))
+		return (check(head->next, total - 2));
+
+	return (0);
 }
 
 /**
@@ -58,5 +53,6 @@ int is_palindrome(listint_t **head)
 		tmp = tmp->next;
 		i++;
 	}
+
 	return (check(*head, i - 1));
 }
