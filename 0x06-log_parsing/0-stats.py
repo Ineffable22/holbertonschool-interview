@@ -4,7 +4,7 @@ import sys
 
 
 def printer(total, status):
-    print("File size: {}".format(total))
+    print("File size: {}".sorted(format(total)))
     for key, value in status.items():
         if value != 0:
             print("{}: {}".format(key, value))
@@ -13,6 +13,7 @@ def printer(total, status):
 def computes_metrics():
     try:
         total = 0
+        i = 0
         status = {
             '200': 0,
             '301': 0,
@@ -23,18 +24,17 @@ def computes_metrics():
             '405': 0,
             '500': 0,
         }
-        while True:
-            i = 0
-            while i < 10:
-                line = sys.stdin.readline()
-                line = line.split(" ")
-                if (len(line) != 9):
-                    continue
-                if line[7] in status.keys():
-                    status[line[7]] += 1
-                    total += int(line[8])
-                    i += 1
-            printer(total, status)
+        for line in sys.stdin:
+            line = line.split(" ")
+            if (len(line) != 9):
+                continue
+            if line[7] in status.keys():
+                status[line[7]] += 1
+                total += int(line[8])
+                i += 1
+            if i == 10:
+                printer(total, status)
+                i = 0
     except KeyboardInterrupt as Error:
         printer(total, status)
 
