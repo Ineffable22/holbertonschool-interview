@@ -13,18 +13,18 @@ def printer(total, status):
 def computes_metrics():
     try:
         total = 0
+        status = {
+            '200': 0,
+            '301': 0,
+            '400': 0,
+            '401': 0,
+            '403': 0,
+            '404': 0,
+            '405': 0,
+            '500': 0,
+        }
         while True:
             i = 0
-            status = {
-                '200': 0,
-                '301': 0,
-                '400': 0,
-                '401': 0,
-                '403': 0,
-                '404': 0,
-                '405': 0,
-                '500': 0,
-            }
             while i < 10:
                 line = sys.stdin.readline()
                 line = line.split(" ")
