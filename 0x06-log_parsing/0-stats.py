@@ -4,8 +4,8 @@ import sys
 
 
 def printer(total, status):
-    print("File size: {}".sorted(format(total)))
-    for key, value in status.items():
+    print("File size: {}".format(total))
+    for key, value in sorted(status.items()):
         if value != 0:
             print("{}: {}".format(key, value))
 
@@ -35,6 +35,7 @@ def computes_metrics():
             if i == 10:
                 printer(total, status)
                 i = 0
+        printer(total, status)
     except KeyboardInterrupt as Error:
         printer(total, status)
 
