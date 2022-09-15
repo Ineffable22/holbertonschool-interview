@@ -35,7 +35,8 @@ def computes_metrics():
             if i == 10:
                 printer(total, status)
                 i = 0
-        printer(total, status)
+        if total != 0:
+            printer(total, status)
     except KeyboardInterrupt as Error:
         printer(total, status)
 
