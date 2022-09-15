@@ -26,17 +26,15 @@ def computes_metrics():
         }
         for line in sys.stdin:
             line = line.split(" ")
-            if (len(line) != 9):
-                continue
-            if line[7] in status.keys():
-                status[line[7]] += 1
-                total += int(line[8])
-                i += 1
-            if i == 10:
+            if (len(line) == 9):
+                if line[7] in status.keys():
+                    status[line[7]] += 1
+                    total += int(line[8])
+                    i += 1
+            if i == 10 or i == 0:
                 printer(total, status)
                 i = 0
-        if total != 0:
-            printer(total, status)
+        printer(total, status)
     except KeyboardInterrupt as Error:
         printer(total, status)
 
