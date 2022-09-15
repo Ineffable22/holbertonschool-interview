@@ -25,12 +25,13 @@ def computes_metrics():
             '500': 0,
         }
         for line in sys.stdin:
-            line = line.split(" ")
-            if (len(line) == 9):
-                if line[7] in status.keys():
-                    status[line[7]] += 1
-                    total += int(line[8])
-                    i += 1
+            line = line.replace("-", " ")
+            line = line.split()
+            if (len(line) == 10):
+                if line[-2] in status.keys():
+                    status[line[-2]] += 1
+                total += int(line[-1])
+                i += 1
             if i == 10 or i == 0:
                 printer(total, status)
                 i = 0
