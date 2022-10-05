@@ -17,7 +17,7 @@ def validUTF8(data: list) -> bool:
     new = []
     for num in data:
         n = num & 0xFF
-        if num < 0:
+        if num < -256:
             if n != num + 256:
                 return False
         new.append(n)
