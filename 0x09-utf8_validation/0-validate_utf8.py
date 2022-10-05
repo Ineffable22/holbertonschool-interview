@@ -20,9 +20,6 @@ def validUTF8(data: list) -> bool:
         if num < 0:
             if n != num + 256:
                 return False
-        elif num < 256:
-            if n != num:
-                return False
         new.append(n)
     try:
         bytes(new).decode(encoding='utf-8', errors='strict')
