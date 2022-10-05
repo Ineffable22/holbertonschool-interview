@@ -23,6 +23,11 @@ def validUTF8(data: list) -> bool:
         else:
             if n != num:
                 return False
+    try:
+        bytes(data).decode(encoding='utf-8', errors='strict')
+    except (ValueError, UnicodeDecodeError):
+        return False
+
     return True
 
 
