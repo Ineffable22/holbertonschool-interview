@@ -14,17 +14,18 @@ def validUTF8(data: list) -> bool:
     """
     if type(data) is not list or not all([isinstance(i, int) for i in data]):
         return False
-
+    new = []
     for num in data:
         n = num & 0xFF
         if num < 0:
             if n != num + 256:
                 return False
-        else:
+        elif num < 256:
             if n != num:
                 return False
+        new.append(n)
     try:
-        bytes(data).decode(encoding='utf-8', errors='strict')
+        bytes(new).decode(encoding='utf-8', errors='strict')
     except (ValueError, UnicodeDecodeError):
         return False
 
