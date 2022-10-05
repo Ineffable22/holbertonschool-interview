@@ -48,8 +48,9 @@ class TestCases(unittest.TestCase):
             80, 121, 116, 104, 111, 110, 32, 105,
             115, 32, 99, 111, 111, 108, 33]), True)
         self.assertEqual(func([229, 65, 127, 256]), False)
-        self.assertEqual(func([0, -1, -2, -255, -256]), True)
+        self.assertEqual(func([0, -1, -2, -255, -256]), False)
         self.assertEqual(func([-257]), False)
+        self.assertEqual(func([260]), True)
 
     def test_empty_type_error(self):
         """Empty test type error"""
@@ -60,13 +61,12 @@ class TestCases(unittest.TestCase):
             "validUTF8() missing 1 required positional argument: 'data'",
             str(Error.exception)
         )
-        
 
     def test_type_error(self):
         """Type test type error"""
         func = valid.validUTF8
         self.assertEqual(func(2), False)
-        self.assertEqual(func({"2":3}), False)
+        self.assertEqual(func({"2": 3}), False)
         self.assertEqual(func(2.3), False)
         self.assertEqual(func('NaN'), False)
         self.assertEqual(func("Hallo"), False)
