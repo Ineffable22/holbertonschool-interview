@@ -6,7 +6,7 @@ on an N×N chessboard. Write a program that solves the N queens problem.
 from sys import argv
 
 
-def validate():
+def validate() -> None:
     """Check beforehand if the number can be evaluated"""
     if (len(argv) != 2):
         print('Usage: nqueens N') or exit(1)
@@ -19,7 +19,7 @@ def validate():
     nqueens(0, num)
 
 
-def nqueens(j, num):
+def nqueens(j: int, num: int) -> None:
     """N Queens Algorithm"""
     table = [num * [0] for i in range(num)]
     col = []
@@ -29,9 +29,9 @@ def nqueens(j, num):
     create_table(j, num, 0, table, diag_right, diag_left, col, dd)
 
 
-def create_table(j, num, bol, table, diag_right, diag_left, col, dd):
+def create_table(j: int, num: int, bol: int, table: int, diag_right: list,
+                 diag_left: list, col: list, dd: list) -> None:
     """Create a test of chess tables with queens in different positions"""
-
     if bol == 0:
         i = 0
     else:
@@ -52,7 +52,7 @@ def create_table(j, num, bol, table, diag_right, diag_left, col, dd):
             try:
                 idx = table[i - 1].index(1)
             except ValueError:
-                return num
+                return
             table[i - 1][idx] = 0
             diag_right.pop()
             diag_left.pop()
@@ -66,7 +66,6 @@ def create_table(j, num, bol, table, diag_right, diag_left, col, dd):
     if i == num and flag == 0:
         return
     print(dd)
-
     idx = table[i - 1].index(1)
     table[i - 1][idx] = 0
     diag_right.pop()
@@ -76,7 +75,8 @@ def create_table(j, num, bol, table, diag_right, diag_left, col, dd):
     create_table(idx + 1, num, 1, table, diag_right, diag_left, col, dd)
 
 
-def check(num, i, j, right, left, col):
+def check(num: int, i: int, j: int,
+          right: list, left: list, col: list) -> bool:
     """Validate if the Queen is not attcked"""
     # Diagonal right
     if (i - j) in right:
