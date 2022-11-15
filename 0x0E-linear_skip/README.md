@@ -3,7 +3,7 @@
 # Files
 
 ### 0. Linear search in a skip list
-### [0-linear_skip.c,](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0E-linear_skip/0-linear_skip.c,) | [search.h](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0E-linear_skip/search.h)
+### [0-linear_skip.c](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0E-linear_skip/0-linear_skip.c) | [search.h](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0E-linear_skip/search.h)
 
 ```C
 #ifndef _SEARCH_H_
