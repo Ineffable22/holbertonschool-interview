@@ -11,8 +11,8 @@ def get_data(subreddit: str, hot_list: list, after: str) -> list:
     res = get(url, headers={'User-Agent': 'Gozu'}, params={'after': after})
     if res.status_code != 200:
         return []
-    after: str = res.json().get('data').get('after')
-    data: list = res.json().get('data').get('children', [])
+    after = res.json().get('data').get('after')
+    data = res.json().get('data').get('children', [])
     for i in data:
         hot_list += (i.get('data').get('title').lower().split())
     return get_data(subreddit, hot_list, after)
@@ -22,13 +22,13 @@ def count_words(subreddit: str, word_list: list) -> None:
     """Prints a sorted count of given keywords
     (case-insensitive, delimited by spaces. Javascript should count as
     javascript, but java should not)"""
-    new_list: list = [i.lower() for i in word_list]
-    new_set: set = set(new_list)
-    hot_list: list = get_data(subreddit, [], "")
-    current_dict: dict = {}
+    new_list = [i.lower() for i in word_list]
+    new_set = set(new_list)
+    hot_list = get_data(subreddit, [], "")
+    current_dict = {}
     for i in new_set:
         current_dict[i] = hot_list.count(i)
-    new: dict = sorted(current_dict.items(), key=lambda y: y[1], reverse=True)
+    new = sorted(current_dict.items(), key=lambda y: y[1], reverse=True)
     for i, j in new:
         if j != 0:
             print("{}: {}".format(i, j))
