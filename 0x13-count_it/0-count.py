@@ -26,7 +26,10 @@ def count_words(subreddit: str, word_list: list) -> None:
     hot_list = get_data(subreddit, [], "")
     current_dict = {}
     for i in new_list:
-        current_dict[i] = hot_list.count(i)
+        if current_dict.get(i):
+            current_dict[i] += hot_list.count(i)
+        else:
+            current_dict[i] = hot_list.count(i)
     new = sorted(current_dict.items(), key=lambda y: y[1], reverse=True)
     for i, j in new:
         if j != 0:
