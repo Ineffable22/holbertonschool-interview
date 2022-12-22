@@ -23,10 +23,9 @@ def count_words(subreddit: str, word_list: list) -> None:
     (case-insensitive, delimited by spaces. Javascript should count as
     javascript, but java should not)"""
     new_list = [i.lower() for i in word_list]
-    new_set = set(new_list)
     hot_list = get_data(subreddit, [], "")
     current_dict = {}
-    for i in new_set:
+    for i in new_list:
         current_dict[i] = hot_list.count(i)
     new = sorted(current_dict.items(), key=lambda y: y[1], reverse=True)
     for i, j in new:
