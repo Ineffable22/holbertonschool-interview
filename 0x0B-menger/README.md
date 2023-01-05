@@ -3,7 +3,7 @@
 # Files
 
 ### 0. 2D Menger sponge
-### [0-menger.c,](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0B-menger/0-menger.c,) | [menger.h](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0B-menger/menger.h)
+### [0-menger.c](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0B-menger/0-menger.c,) | [menger.h](https://github.com/Ineffable22/holbertonschool-interview/blob/main/0x0B-menger/menger.h)
 
 ```C
 alex@~/0x0B-menger$ cat 0-main.c 
