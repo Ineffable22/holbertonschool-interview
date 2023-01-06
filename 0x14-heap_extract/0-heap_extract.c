@@ -80,6 +80,7 @@ int heap_extract(heap_t **root)
 	if (len == 1)
 	{
 		free(*root);
+		*root = NULL;
 		return (value);
 	}
 	str = itoa(len, 2);
