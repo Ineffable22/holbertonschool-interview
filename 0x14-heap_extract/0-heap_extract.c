@@ -77,6 +77,11 @@ int heap_extract(heap_t **root)
 	current = *root;
 	value = (*root)->n;
 	len = height(current);
+	if (len == 1)
+	{
+		free(*root);
+		return (value);
+	}
 	str = itoa(len, 2);
 	for (i = 1; str[i]; i++)
 		current = str[i] == '1' ? current->right : current->left;
