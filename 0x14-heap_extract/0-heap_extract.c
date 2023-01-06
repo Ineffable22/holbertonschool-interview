@@ -85,12 +85,11 @@ int heap_extract(heap_t **root)
 	str = itoa(len, 2);
 	for (i = 1; str[i]; i++)
 		current = str[i] == '1' ? current->right : current->left;
-	(*root)->n = i;
+	(*root)->n = current->n;
 	if (current->parent->left == current)
 		current->parent->left = NULL;
 	else
 		current->parent->right = NULL;
-	i = current->n;
 	free(current);
 	heapify_down(root);
 	return (value);
