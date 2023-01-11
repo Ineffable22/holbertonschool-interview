@@ -9,6 +9,9 @@
  */
 void printer(char *str, int len)
 {
+	for (; *(str + 1) != 0 && *(str + 1) == '0'; str++, len--)
+	{}
+
 	for (; len; len--, str++)
 		if (*str)
 			_putchar(*str);
