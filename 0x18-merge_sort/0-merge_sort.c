@@ -108,11 +108,18 @@ void copy_array(int A[], int start, int end, int B[])
  */
 void merge_sort(int *array, size_t size)
 {
-	int array2[size > 0 ? size : 1];
+	int *array2;
 
 	if (!array || size < 2)
 		return;
 
+	array2 = malloc(sizeof(int) * size);
+	if (!array2)
+	{
+		fprintf(stderr, "%s: Can not malloc\n", __func__);
+		return;
+	}
 	copy_array(array, 0, size, array2);
 	top_down_split_merge(array2, 0, size, array);
+	free(array2);
 }
