@@ -38,10 +38,12 @@ void top_down_merge(int *A, int left, int mid, int right, int *B)
 {
 	int i = left, j = mid, k = left;
 
+	if (!A || !B)
+		return;
 	printf("Merging...\n");
-	printf("[left]: = ");
+	printf("[left]: ");
 	print_array2(A, left, mid);
-	printf("[right]: = ");
+	printf("[right]: ");
 	print_array2(A, mid, right);
 	for (; k < right; k++)
 	{
@@ -57,7 +59,7 @@ void top_down_merge(int *A, int left, int mid, int right, int *B)
 		}
 	}
 
-	printf("[Done]: = ");
+	printf("[Done]: ");
 	print_array2(B, left, right);
 }
 
@@ -75,7 +77,7 @@ void top_down_split_merge(int B[], size_t left, size_t right, int A[])
 {
 	size_t mid = 0;
 
-	if (right - left <= 1)
+	if (!A || !B || right - left <= 1)
 		return;
 	mid = (right + left) / 2;
 	top_down_split_merge(A, left, mid, B);
@@ -94,7 +96,7 @@ void top_down_split_merge(int B[], size_t left, size_t right, int A[])
  */
 void copy_array(int A[], int start, int end, int B[])
 {
-	for (; start < end; start++)
+	for (; A && B && start < end; start++)
 		B[start] = A[start];
 }
 
