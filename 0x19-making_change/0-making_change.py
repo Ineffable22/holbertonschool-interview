@@ -2,7 +2,7 @@
 """
 Change comes from within
 Time Complexity O(n * log(n))
-Spatial complexity O(1)
+Space complexity O(1)
 """
 
 
