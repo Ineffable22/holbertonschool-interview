@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g3 -Wall -Wextra -Werror -pedantic
+CFLAGS = -g3 -Wall -Wextra -Werror=vla -pedantic
 CFILES = 0-main.c 0-merge_sort.c print_array.c -o
 NAME = merge
 
