@@ -13,7 +13,7 @@ def makeChange(coins: list, total: int) -> int:
 
     Args:
         coins (list): Is a list of the values of the coins in
-                      your possession
+        your possession
         total (int):  Total number to reach
 
     Returns:
