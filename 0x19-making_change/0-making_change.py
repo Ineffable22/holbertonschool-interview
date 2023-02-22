@@ -32,5 +32,5 @@ def makeChange(coins: list, total: int) -> int:
     return -1
 
 
-if __name__ == "__main__":
-    makeChange(coins, total)
+# if __name__ == "__main__":
+#    makeChange(coins, total)
