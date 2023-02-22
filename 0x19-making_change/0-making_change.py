@@ -33,4 +33,6 @@ def makeChange(coins: list, total: int) -> int:
 
 
 if __name__ == "__main__":
-    makeChange(coins, total)
+    coins = [1, 2, 5, 10, 25]
+    total = 47
+    print(makeChange(coins, total))
