@@ -6,7 +6,7 @@ Space complexity O(1)
 """
 
 
-def makeChange(coins: list, total: int) -> int:
+def makeChange(coins, total: int) -> int:
     """
     Given a pile of coins of different values, determine the fewest
     number of coins needed to meet a given amount total.
@@ -32,5 +32,5 @@ def makeChange(coins: list, total: int) -> int:
     return -1
 
 
-# if __name__ == "__main__":
-#    makeChange(coins, total)
+if __name__ == "__main__":
+    makeChange(coins, total)
