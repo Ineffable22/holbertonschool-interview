@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
 Change comes from within
-Time Complexity O(n * log(n))
-Space complexity O(1)
+Dynamic programming
+Time Complexity O(n * m)
+Space complexity O(total)
 """
 
 
@@ -21,18 +22,20 @@ def makeChange(coins: list, total: int) -> int:
     """
     if total <= 0:
         return 0
-    coins.sort(reverse=True)
-    number = 0
-    for i in coins:
-        while i <= total:
-            total -= i
-            number += 1
-        if total == 0:
-            return number
-    return -1
+    coins.sort()
+    INF = float('inf')
+    dp = [INF] * (total + 1)
+    dp[0] = 0
+    for i in range(1, total + 1):
+        for j in range(len(coins)):
+            if coins[j] <= i:
+                dp[i] = min(dp[i], dp[i - coins[j]] + 1)
+            else:
+                break
+    return dp[total] if dp[total] != INF else -1
 
 
 if __name__ == "__main__":
-    coins = [1, 2, 5, 10, 25]
-    total = 47
+    coins = [507, 500, 300, 200, 6, 5, 4, 3]
+    total = 1413
     print(makeChange(coins, total))
