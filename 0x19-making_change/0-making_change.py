@@ -22,7 +22,6 @@ def makeChange(coins: list, total: int) -> int:
     """
     if total <= 0:
         return 0
-    coins.sort()
     INF = float('inf')
     dp = [INF] * (total + 1)
     dp[0] = 0
