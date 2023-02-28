@@ -1,6 +1,5 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -pedantic
-HEADER = socket.h
 BETTY = betty
 
 SRC0 = 0-main.c 0-add_node.c
