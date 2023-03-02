@@ -33,4 +33,4 @@ fclean: clean oclean
 re: oclean all
 
 betty:
-	$(BETTY) *.c *.h
+	$(BETTY) *.c *.h Makefile
