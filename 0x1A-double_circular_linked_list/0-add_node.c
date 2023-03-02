@@ -34,7 +34,8 @@ List *insert_node(List **list, char *str)
 	if (!list ||  !str)
 		return (NULL);
 
-	if ((node = new_node(tmp, str)) == NULL)
+	node = new_node(tmp, str);
+	if (node == NULL)
 		return (NULL);
 	if (!(*list))
 		return ((*list) = node);
