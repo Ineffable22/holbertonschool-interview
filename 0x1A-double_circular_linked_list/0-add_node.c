@@ -7,17 +7,17 @@
  *
  * Return: Address of the new node, or NULL on failure
  */
-List *new_node(List **list, char *str)
+List *new_node(List *list, char *str)
 {
-	(*list) = malloc(sizeof(List));
-	if (!(*list))
+	list = malloc(sizeof(List));
+	if (!list)
 		return (NULL);
-	(*list)->str = strdup(str);
-	if (!((*list)->str))
+	list->str = strdup(str);
+	if (!(list->str))
 		return (NULL);
-	(*list)->next = NULL;
-	(*list)->prev = NULL;
-	return ((*list));
+	list->next = list;
+	list->prev = list;
+	return (list);
 }
 
 /**
@@ -34,23 +34,14 @@ List *insert_node(List **list, char *str)
 	if (!list ||  !str)
 		return (NULL);
 
-	if (!(*list))
-		return (new_node(&(*list), str));
-	node = calloc(1, sizeof(List));
-	if (!node)
+	if ((node = new_node(tmp, str)) == NULL)
 		return (NULL);
-	node->str = strdup(str);
+	if (!(*list))
+		return ((*list) = node);
+
 	node->next = (*list);
-	if (tmp->prev)
-	{
-		node->prev = tmp->prev;
-		tmp->prev->next = node;
-	}
-	else /* !(tmp->next) */
-	{
-		node->prev = tmp;
-		tmp->next = node;
-	}
+	tmp->prev->next = node;
+	node->prev = tmp->prev;
 	tmp->prev = node;
 	return (node);
 }
