@@ -36,7 +36,7 @@ List *insert_node(List **list, char *str)
 
 	if (!(*list))
 		return (new_node(&(*list), str));
-	node = malloc(sizeof(List));
+	node = calloc(1, sizeof(List));
 	if (!node)
 		return (NULL);
 	node->str = strdup(str);
