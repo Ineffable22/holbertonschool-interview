@@ -5,18 +5,17 @@
  * @array: Array to sort
  * @new_array: Copy of sort array
  * @size: Size of sort array
- * @mod: Current module
  * @div: Current division
  * Return: 0 if successful, otherwise 1
  */
-int counting_sort(int *array, int *new_array, size_t size, int mod, int div)
+int counting_sort(int *array, int *new_array, size_t size, int div)
 {
 	int buf[D_MAX] = {0}, i = 0, digit = 0;
 	int count = 0;
 
 	for (i = 0; i < (int)size; i++)
 	{
-		digit = (array[i] % mod) / div;
+		digit = (array[i] / div) % D_MAX;
 		if ((array[i] / div) == 0)
 			count++;
 		if (count == (int)size - 1)
@@ -26,9 +25,9 @@ int counting_sort(int *array, int *new_array, size_t size, int mod, int div)
 	}
 	for (i = 1; i < D_MAX; i++)
 		buf[i] += buf[i - 1];
-	for (i = D_MAX - 1; i >= 0; i--)
+	for (i = size - 1; i >= 0; i--)
 	{
-		digit = (new_array[i] % mod) / div;
+		digit = (new_array[i] / div) % D_MAX;
 		array[--buf[digit]] = new_array[i];
 	}
 	print_array(array, size);
@@ -45,7 +44,7 @@ int counting_sort(int *array, int *new_array, size_t size, int mod, int div)
  */
 void radix_sort(int *array, size_t size)
 {
-	int mod = 10, div = 1;
+	int div = 1;
 	int *new_array = NULL;
 
 	if (!array || size < 2)
@@ -58,10 +57,9 @@ void radix_sort(int *array, size_t size)
 	}
 	while (1)
 	{
-		if (counting_sort(array, new_array, size, mod, div))
+		if (counting_sort(array, new_array, size, div))
 			break;
-		div *= 10;
-		mod *= 10;
+		div *= D_MAX;
 	}
 	free(new_array);
 }
