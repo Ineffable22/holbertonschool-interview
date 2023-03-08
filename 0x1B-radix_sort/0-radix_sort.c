@@ -31,6 +31,7 @@ int counting_sort(int *array, int *new_array, size_t size, int mod, int div)
 		digit = (new_array[i] % mod) / div;
 		array[--buf[digit]] = new_array[i];
 	}
+	print_array(array, size);
 	return (0);
 }
 
@@ -59,7 +60,6 @@ void radix_sort(int *array, size_t size)
 	{
 		if (counting_sort(array, new_array, size, mod, div))
 			break;
-		print_array(array, size);
 		div *= 10;
 		mod *= 10;
 	}
