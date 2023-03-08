@@ -6,18 +6,13 @@
  * @new_array: Copy of sort array
  * @size: Size of sort array
  * @div: Current division
- * Return: 0 if successful, otherwise 1
  */
-int counting_sort(int *array, int *new_array, size_t size, int div)
+void counting_sort(int *array, int *new_array, size_t size, int div)
 {
-	int buf[D_MAX] = {0}, i = 0, digit = 0, count = 0;
+	int buf[D_MAX] = {0}, i = 0, digit = 0;
 
 	for (i = 0; i < (int)size; i++)
 	{
-		if ((array[i] / div) == 0)
-			count++;
-		if (count == (int)size - 1)
-			return (1);
 		digit = (array[i] / div) % D_MAX;
 		buf[digit]++;
 		new_array[i] = array[i];
@@ -30,7 +25,6 @@ int counting_sort(int *array, int *new_array, size_t size, int div)
 		array[--buf[digit]] = new_array[i];
 	}
 	print_array(array, size);
-	return (0);
 }
 
 /**
@@ -43,7 +37,7 @@ int counting_sort(int *array, int *new_array, size_t size, int div)
  */
 void radix_sort(int *array, size_t size)
 {
-	int div = 1, *new_array = NULL, res = 0;
+	int div = 1, *new_array = NULL, max_number = 0, i = 0;
 
 	if (!array || size < 2)
 		return;
@@ -53,7 +47,9 @@ void radix_sort(int *array, size_t size)
 		fprintf(stderr, "Can not malloc\n");
 		return;
 	}
-	for (div = 1; !res; div *= D_MAX)
-		res = counting_sort(array, new_array, size, div);
+	for (i = 0; i < (int)size; i++)
+		max_number = array[i] > max_number ? array[i] : max_number;
+	for (div = 1; max_number / div; div *= D_MAX)
+		counting_sort(array, new_array, size, div);
 	free(new_array);
 }
