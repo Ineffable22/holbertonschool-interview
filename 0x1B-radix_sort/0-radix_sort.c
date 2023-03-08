@@ -20,7 +20,7 @@ int counting_sort(int *array, int *new_array, size_t size, int mod, int div)
 		if ((array[i] / div) == 0)
 			count++;
 		if (count == (int)size - 1)
-			return (free(new_array), 1);
+			return (1);
 		new_array[i] = array[i];
 		buf[digit]++;
 	}
@@ -63,4 +63,5 @@ void radix_sort(int *array, size_t size)
 		div *= 10;
 		mod *= 10;
 	}
+	free(new_array);
 }
