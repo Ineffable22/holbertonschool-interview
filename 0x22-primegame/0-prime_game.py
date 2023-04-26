@@ -19,7 +19,7 @@ def print_numbers(numbers):
     print()
 
 
-def isWinner(x: int, nums: list) -> str or None:
+def isWinner(x: int, nums: list):
     """Prime Game
     args:
         x: number of rounds
