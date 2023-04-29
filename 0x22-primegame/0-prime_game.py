@@ -1,22 +1,21 @@
 #!/usr/bin/python3
 """Prime Game
 Maria and Ben are playing a game. Given a set of consecutive integers starting
-from 1 up to and including n, they take turns choosing a prime number from the
-set and removing that number and its multiples from the set. The player that
+1 up to and including n, they take turns choosing a prime number the
+set and removing that number and its multiples the set. The player that
 cannot make a move loses the game.
 """
 
 
 def print_numbers(numbers):
     """Prints the numbers in the list"""
-    print(" leaving", end=" ")
+    """print(" leaving", end=" ")"""
     flag = True
     for x in range(len(numbers)):
         if flag is False:
-            print(", ", end="")
+            """print(", ", end="")"""
         flag = False
-        print("{}".format(numbers[x]), end="")
-    print()
+        """print("{}".format(numbers[x]), end="")"""
 
 
 def isWinner(x: int, nums: list):
@@ -34,10 +33,10 @@ def isWinner(x: int, nums: list):
     ben = 0
     maria = 0
     for i in range(len(nums)):
-        print("Round {}: {}".format(i, nums[i]))
+        """print("Round {}: {}".format(i, nums[i]))"""
         if nums[i] == 1:
-            print("\t- Ben wins because there are no prime numbers "
-                  "for Maria to choose")
+            """print("\t- Ben wins because there are no prime numbers "
+                  "for Maria to choose")"""
             ben += 1
             continue
         numbers = [x for x in range(1, nums[i] + 1)]
@@ -48,37 +47,37 @@ def isWinner(x: int, nums: list):
                 first = False
                 newList = []
                 flag = True
-                print("\t- Maria picks {} and removes ".
-                      format(numbers[1]), end="")
+                """print("\t- Maria picks {} and removes ".
+                      format(numbers[1]), end="")"""
                 for i in range(len(numbers)):
                     if numbers[i] % 2 == 0 and numbers[i] != 1:
                         if flag is False:
-                            print(", ", end="")
+                            """print(", ", end="")"""
                         flag = False
-                        print("{}".format(numbers[i]), end="")
+                        """print("{}".format(numbers[i]), end="")"""
                         numbers[i] = 0
                     else:
                         newList.append(numbers[i])
                 numbers = newList
-                print_numbers(numbers)
+                """print_numbers(numbers)"""
             else:
-                print("\t- Maria picks {} and removes {}"
-                      .format(numbers[1], numbers[1]), end="")
+                """print("\t- Maria picks {} and removes {}"
+                      .format(numbers[1], numbers[1]), end="")"""
                 numbers.remove(numbers[1])
                 print_numbers(numbers)
             if len(numbers) == 1:
-                print("\t- Maria wins because there are no prime numbers "
-                      "left for Ben to choose")
+                """print("\t- Maria wins because there are no prime numbers "
+                      "left for Ben to choose")"""
                 maria += 1
                 break
             # print(numbers)
-            print("\t- Ben picks {} and removes {}"
-                  .format(numbers[1], numbers[1]), end="")
+            """print("\t- Ben picks {} and removes {}"
+                  .format(numbers[1], numbers[1]), end="")"""
             numbers.remove(numbers[1])
-            print_numbers(numbers)
+            """print_numbers(numbers)"""
             if len(numbers) == 1:
-                print("\t- Ben wins because there are no prime numbers "
-                      "left for Maria to choose")
+                """print("\t- Ben wins because there are no prime numbers "
+                      "left for Maria to choose")"""
                 ben += 1
                 break
 
